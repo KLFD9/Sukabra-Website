@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,800;0,900;1,400;1,500;1,600;1,900&display=swap');
+
+/*====***==== Variables CSS ====***===*/
+/*============***********=======**********==========*/
+
+
+	/*=============== Couleurs ==================*/
+	/* Couleur en mode HSL (hue, saturation, lightness)*/
+
+		$primaire:hsl(268,58%,48%);
+		$primaire-alt:hsl(268,28%,38%);
+		$secondaire: hsl(335,88%,56%);
+		$secondaire-alt:hsl(328,78%,38%);
+		$titre-color:hsl(0,0%,100%);
+		$text-color:hsl(252,100%,87%);
+		$body-color:hsl(0, 0%, 20%);
+		$bg:#e65151;
+
+
+	/*============ Font et Typographie ==========*/
+
+		$body-font: "Montserrat", sans-serif;
+		$big-font-size: 2rem;
+		$normal-font-size: .938rem;
+		$small-font-size: .813rem;
+
+	/*============ Font epaisseur ===============*/
+
+		$font-medium: 500;
+		$font-semi-bold: 600;
+		$font-bold: 700;
+		$font-extra:800;
+
+	/*============ Responsive Font ==============*/
+
+		$big-font-size:4rem;
+		$h3-font-size:1.225rem;
+		$normal-font-size:1rem;
+		$small-font-size: .875rem;
+
+	/*========== z index ==========*/
+
+		$z-tooltip: 10;
+		$z-fixed: 100;
+
+
+/*==========================================*/
+/*================ RESET ===================*/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	display: flex;
+	align-items: center;
+	align-content:center;
+	flex-direction: column;
+	font-family: $body-font;
+	padding: 5vh;
+	justify-content: center;
+	&::after{
+		content: '';
+		position: fixed;
+		inset: 0;
+		background-color: $bg;
+		background: url(/assets/img/skb_bear_run_login.png) no-repeat;
+		background-size: cover;
+		inset:0;
+		opacity: 0.5;
+		width: 60%;		
+		height: 100vh;
+		clip-path: polygon(0 100%, 0 0, 100% 0, 70% 100%);
+		z-index: -1;		
+	}
+}
+
+
+/*==========================================*/
+/*========= Header et Navigation ===========*/
+
+.login-card {
+	background-color: white;
+	border: 1px solid #ddd;
+	box-shadow: 0 10px 50px -30px black;
+	width: 1200px;
+	border-radius: 30px;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: auto auto;
+}
+	
+a {
+	text-decoration: none;
+	color: var(--bg);
+}
+
+.column{
+	padding: 4rem;
+
+	&:last-child{
+		background: url(/assets/img/skb_bear_run_login.png) center;
+		background-size: cover;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+
+		&:after {
+			content: "";
+			position: absolute;
+			background: linear-gradient(90deg, white,#ffffff82);
+			inset: 0;
+		}
+
+		* {
+			z-index: 1;
+		}
+
+		
+		a {
+			display: inline-block;
+			padding: 12px 30px;
+			font-size: 16px;
+			border: 2px solid $bg;	
+			color: black;
+			border-radius: 50px;
+			cursor: pointer;
+			transition: all .3s;
+			font-weight: 600;
+
+			&:hover{
+				background-color:$bg;
+				color: white;
+
+			}
+		}
+
+
+	}
+}
+
+h1{
+	margin-top: 3rem;
+	padding-bottom: 2rem;
+}
+
+.form-element{
+	width: 100%;
+	border: none;
+	background-color: #f1f1f1;
+	padding: 20px 30px;
+	font-size: 18px;
+	border-radius:50px ;
+	transition: box-shadow .2s;
+
+	&:focus{
+		outline: none;
+		box-shadow: 0 0 0 2px $bg;
+	}
+}
+
+
+input[type=checkbox] {
+	accent-color: $bg;
+	width: 16px;
+	height: 16px;
+}
+
+form {
+	margin-top: 3rem;
+
+	&>* {
+		margin-top: 1rem;
+	}
+	button {
+		background-color: $bg;
+		color: white;
+		border: none;
+		padding: 15px 40px;
+		border-radius: 50px;
+		cursor: pointer;
+		font-weight: 600;
+		font-size: 18px;
+		transition: all .2s;
+
+		&:active {
+			scale: .95;
+			background-color: darken($bg, 10);
+		}
+
+		.form-checkbox-item{
+			display: flex;
+			align-items: center;
+			gap: .7rem;
+			margin-left: 5px;
+		}
+	}
+}
+
+.flex{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.social-buttons{
+	display: flex;
+	gap: 1rem;
+
+	a{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		border-radius: 50px;
+		font-size: 22px;
+		color: white;
+		transition: scale .2s;
+		background-color: green;
+
+		&.ri-google-fill{
+			background-color: #ee4545;
+		}
+		&.ri-discord-fill{
+			background-color: #5865F2;
+		}
+		&.ri-github-fill{
+			background-color: #191919;
+		}
+
+		&:hover{
+		scale: .95;
+		}
+	}
+}
+
+@media (max-width:992px){
+	.login-card{
+		display: block;
+		width: 500px;
+		text-align: center;
+
+		.column{
+			&:last-child{
+				display: none;
+			}
+		}
+	}
+
+	.flex{
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.social-buttons{
+		justify-content: center;
+	}
+}
+
+// Fin login Page
